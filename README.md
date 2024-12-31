@@ -1,4 +1,4 @@
-# NewsNow
+# NewsNow-v0.0.20
 ![](screenshots/preview-1.png)
 
 ![](screenshots/preview-2.png)
