@@ -14,7 +14,12 @@ const nitroOption: Parameters<typeof viteNitro>[0] = {
   sourceMap: false,
   database: {
     default: {
-      connector: "sqlite",
+      connector: "better-sqlite3",
+    },
+  },
+  devDatabase: {
+    default: {
+      connector: "better-sqlite3",
     },
   },
   imports: {
@@ -38,6 +43,11 @@ if (process.env.VERCEL) {
   // }
 } else if (process.env.CF_PAGES) {
   nitroOption.preset = "cloudflare-pages"
+  nitroOption.unenv = {
+    alias: {
+      "safer-buffer": "node:buffer",
+    },
+  }
   nitroOption.database = {
     default: {
       connector: "cloudflare-d1",
